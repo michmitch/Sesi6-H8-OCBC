@@ -1,0 +1,106 @@
+--a
+CREATE DATABASE staff;
+
+--b
+CREATE TABLE data_staff(
+	id_staff int IDENTITY(1,1) PRIMARY KEY,
+	nik int,
+	nama varchar(50),
+	alamat varchar(200),
+	handphone varchar(15)
+);
+
+--c & d
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14001,'BEJO1','SURABAYA','08123456781');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14002,'BEJO2','SURABAYA','08123456782');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14003,'BEJO3','SURABAYA','08123456783');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14004,'BEJO4','SURABAYA','08123456784');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14005,'BEJO5','SURABAYA','08123456785');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14006,'BEJO6','SURABAYA','08123456786');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14007,'BEJO7','SURABAYA','08123456787');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14008,'BEJO8','SURABAYA','08123456788');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14009,'BEJO9','SURABAYA','08123456789');
+
+INSERT INTO data_staff (nik, nama, alamat, handphone)
+VALUES(14010,'BEJO10','SURABAYA','08123456780');
+
+--e
+ALTER table data_staff add joindate date;
+INSERT INTO data_staff (nik, nama, alamat, handphone, joindate)
+VALUES(14010,'BANG BEJO','SURABAYA','08123456780', '2021-10-13');
+
+--f
+SELECT TOP 2 * from data_staff;
+
+--g
+SELECT TOP 3 * from data_staff;
+
+--h
+CREATE TABLE staffoutsource(
+	id_staff int IDENTITY(1,1) PRIMARY KEY,
+	nik int,
+	nama varchar(50),
+	alamat varchar(200),
+	handphone varchar(15),
+	joindate date
+);
+
+--i
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14001,'BEJO1','SURABAYA','08123456781', '2021-10-01');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14002,'BEJO2','SURABAYA','08123456782', '2021-10-02');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14003,'BEJO3','SURABAYA','08123456783', '2021-10-03');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14004,'BEJO4','SURABAYA','08123456784', '2021-10-04');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14005,'BEJO5','SURABAYA','08123456785', '2021-10-05');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14006,'BEJO6','SURABAYA','08123456786', '2021-10-06');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14007,'BEJO7','SURABAYA','08123456787', '2021-10-07');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14008,'BEJO8','SURABAYA','08123456788', '2021-10-08');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14009,'BEJO9','SURABAYA','08123456789', '2021-10-09');
+
+INSERT INTO staffoutsource (nik, nama, alamat, handphone, joindate)
+VALUES(14011,'BANG BEJO','SURABAYA','08123456780', '2021-10-13');
+
+--j
+SELECT * FROM data_staff ds join staffoutsource s on ds.joindate = s.joindate;
+
+--k
+SELECT * FROM data_staff ds right join staffoutsource s on ds.joindate = s.joindate;
+
+--l
+SELECT * FROM data_staff ds left join staffoutsource s on ds.joindate = s.joindate;
+
+--m
+SELECT * FROM data_staff ds full join staffoutsource s on ds.joindate = s.joindate;
